@@ -67,5 +67,6 @@
   "gui.trailpack.slot.armor_2.desc": "배낭을 멘 상태에서 웅크리기 + 손 바꾸기 키(기본 F)를 누르면 입고 있는 장비와 칸끼리 맞바꿉니다. 비어 있으면 입은 것을 벗어 넣습니다. 귀속 저주 장비와, 몸 장비 칸에 멘 배낭은 바뀌지 않습니다.",
   "gui.trailpack.slot.armor_3.title": "갑옷 칸 — 발",
   "gui.trailpack.slot.armor_3.desc": "배낭을 멘 상태에서 웅크리기 + 손 바꾸기 키(기본 F)를 누르면 입고 있는 장비와 칸끼리 맞바꿉니다. 비어 있으면 입은 것을 벗어 넣습니다. 귀속 저주 장비와, 몸 장비 칸에 멘 배낭은 바뀌지 않습니다.",
-  "message.trailpack.pouch_empty": "간식 주머니가 비어 있습니다."
+  "message.trailpack.pouch_empty": "간식 주머니가 비어 있습니다.",
+  "fml.menu.mods.info.description.trailpack": "바닐라 로어에 맞춘 배낭. 몸 장비 칸(Curios 가 있으면 등 칸)에 메고, 설치해서 쓰고, 부착물(도구걸이·간식 주머니·침낭끈·갑옷주머니)을 단다."
 }
