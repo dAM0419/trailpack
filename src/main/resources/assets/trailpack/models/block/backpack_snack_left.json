@@ -1,0 +1,216 @@
+{
+  "textures": {
+    "leather": "trailpack:block/leather",
+    "leather_dark": "trailpack:block/leather_dark",
+    "brass": "trailpack:block/brass",
+    "iron": "trailpack:block/iron",
+    "leather_base": "trailpack:block/leather_base",
+    "particle": "trailpack:block/leather"
+  },
+  "elements": [
+    {
+      "from": [
+        1.2,
+        2.5,
+        6.0
+      ],
+      "to": [
+        3.0,
+        8.5,
+        10.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.5,
+            14.8,
+            13.5
+          ],
+          "texture": "#leather"
+        },
+        "south": {
+          "uv": [
+            1.2,
+            7.5,
+            3.0,
+            13.5
+          ],
+          "texture": "#leather"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            7.5,
+            10.0,
+            13.5
+          ],
+          "texture": "#leather"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            7.5,
+            10.0,
+            13.5
+          ],
+          "texture": "#leather"
+        },
+        "up": {
+          "uv": [
+            1.2,
+            6.0,
+            3.0,
+            10.0
+          ],
+          "texture": "#leather"
+        },
+        "down": {
+          "uv": [
+            1.2,
+            6.0,
+            3.0,
+            10.0
+          ],
+          "texture": "#leather"
+        }
+      }
+    },
+    {
+      "from": [
+        1.0,
+        7.5,
+        5.8
+      ],
+      "to": [
+        3.0,
+        9.0,
+        10.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            15.0,
+            8.5
+          ],
+          "texture": "#leather_dark"
+        },
+        "south": {
+          "uv": [
+            1.0,
+            7.0,
+            3.0,
+            8.5
+          ],
+          "texture": "#leather_dark"
+        },
+        "east": {
+          "uv": [
+            5.8,
+            7.0,
+            10.2,
+            8.5
+          ],
+          "texture": "#leather_dark"
+        },
+        "west": {
+          "uv": [
+            5.8,
+            7.0,
+            10.2,
+            8.5
+          ],
+          "texture": "#leather_dark"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            5.8,
+            3.0,
+            10.2
+          ],
+          "texture": "#leather_dark"
+        },
+        "down": {
+          "uv": [
+            1.0,
+            5.8,
+            3.0,
+            10.2
+          ],
+          "texture": "#leather_dark"
+        }
+      }
+    },
+    {
+      "from": [
+        0.8,
+        6.6,
+        7.4
+      ],
+      "to": [
+        1.2,
+        7.6,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.8,
+            8.4,
+            15.2,
+            9.4
+          ],
+          "texture": "#brass"
+        },
+        "south": {
+          "uv": [
+            0.8,
+            8.4,
+            1.2,
+            9.4
+          ],
+          "texture": "#brass"
+        },
+        "east": {
+          "uv": [
+            7.4,
+            8.4,
+            8.6,
+            9.4
+          ],
+          "texture": "#brass"
+        },
+        "west": {
+          "uv": [
+            7.4,
+            8.4,
+            8.6,
+            9.4
+          ],
+          "texture": "#brass"
+        },
+        "up": {
+          "uv": [
+            0.8,
+            7.4,
+            1.2,
+            8.6
+          ],
+          "texture": "#brass"
+        },
+        "down": {
+          "uv": [
+            0.8,
+            7.4,
+            1.2,
+            8.6
+          ],
+          "texture": "#brass"
+        }
+      }
+    }
+  ]
+}

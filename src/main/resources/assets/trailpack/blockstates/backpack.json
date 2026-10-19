@@ -1,0 +1,780 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack"
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "right_pouch": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_right"
+      }
+    },
+    {
+      "when": {
+        "right_pouch": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_right",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "right_pouch": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_right",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "right_pouch": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_right",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "left_pouch": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_left"
+      }
+    },
+    {
+      "when": {
+        "left_pouch": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_left",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "left_pouch": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_left",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "left_pouch": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_snack_left",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "armor": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_armor"
+      }
+    },
+    {
+      "when": {
+        "armor": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_armor",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "armor": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_armor",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "armor": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_armor",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "white",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_white"
+      }
+    },
+    {
+      "when": {
+        "roll": "white",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_white",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "white",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_white",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "white",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_white",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "orange",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_orange"
+      }
+    },
+    {
+      "when": {
+        "roll": "orange",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_orange",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "orange",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_orange",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "orange",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_orange",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "magenta",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_magenta"
+      }
+    },
+    {
+      "when": {
+        "roll": "magenta",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_magenta",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "magenta",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_magenta",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "magenta",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_magenta",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "light_blue",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_blue"
+      }
+    },
+    {
+      "when": {
+        "roll": "light_blue",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_blue",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "light_blue",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_blue",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "light_blue",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_blue",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "yellow",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_yellow"
+      }
+    },
+    {
+      "when": {
+        "roll": "yellow",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_yellow",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "yellow",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_yellow",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "yellow",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_yellow",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "lime",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_lime"
+      }
+    },
+    {
+      "when": {
+        "roll": "lime",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_lime",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "lime",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_lime",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "lime",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_lime",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "pink",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_pink"
+      }
+    },
+    {
+      "when": {
+        "roll": "pink",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_pink",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "pink",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_pink",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "pink",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_pink",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "gray",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_gray"
+      }
+    },
+    {
+      "when": {
+        "roll": "gray",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_gray",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "gray",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_gray",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "gray",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_gray",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "light_gray",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_gray"
+      }
+    },
+    {
+      "when": {
+        "roll": "light_gray",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_gray",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "light_gray",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_gray",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "light_gray",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_light_gray",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "cyan",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_cyan"
+      }
+    },
+    {
+      "when": {
+        "roll": "cyan",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_cyan",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "cyan",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_cyan",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "cyan",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_cyan",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "purple",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_purple"
+      }
+    },
+    {
+      "when": {
+        "roll": "purple",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_purple",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "purple",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_purple",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "purple",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_purple",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "blue",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_blue"
+      }
+    },
+    {
+      "when": {
+        "roll": "blue",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_blue",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "blue",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_blue",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "blue",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_blue",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "brown",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_brown"
+      }
+    },
+    {
+      "when": {
+        "roll": "brown",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_brown",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "brown",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_brown",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "brown",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_brown",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "green",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_green"
+      }
+    },
+    {
+      "when": {
+        "roll": "green",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_green",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "green",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_green",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "green",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_green",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "red",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_red"
+      }
+    },
+    {
+      "when": {
+        "roll": "red",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_red",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "red",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_red",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "red",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_red",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "roll": "black",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_black"
+      }
+    },
+    {
+      "when": {
+        "roll": "black",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_black",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "roll": "black",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_black",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "roll": "black",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "trailpack:block/backpack_roll_black",
+        "y": 270
+      }
+    }
+  ]
+}

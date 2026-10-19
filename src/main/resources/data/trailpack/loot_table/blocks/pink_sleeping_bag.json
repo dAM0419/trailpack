@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "trailpack:pink_sleeping_bag",
+          "properties": {
+            "part": "head"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "trailpack:pink_sleeping_bag"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "trailpack:blocks/pink_sleeping_bag"
+}

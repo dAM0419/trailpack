@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.trailpack.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PiglinSpecificSensorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  },
+  "client": [
+    "client.IrisHeldItemMixin"
+  ]
+}

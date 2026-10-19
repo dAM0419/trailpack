@@ -1,0 +1,8 @@
+{
+  "parent": "trailpack:block/template_sleeping_bag_foot",
+  "textures": {
+    "top": "trailpack:block/bag_top_brown",
+    "side": "trailpack:block/bag_side_brown",
+    "particle": "trailpack:block/bag_top_brown"
+  }
+}

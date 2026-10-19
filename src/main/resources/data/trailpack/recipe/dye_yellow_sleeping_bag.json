@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sleeping_bag_dye",
+  "ingredients": [
+    {
+      "tag": "trailpack:sleeping_bags"
+    },
+    {
+      "item": "minecraft:yellow_dye"
+    }
+  ],
+  "result": {
+    "id": "trailpack:yellow_sleeping_bag",
+    "count": 1
+  }
+}

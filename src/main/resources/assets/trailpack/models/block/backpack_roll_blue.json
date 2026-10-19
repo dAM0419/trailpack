@@ -1,0 +1,8 @@
+{
+  "parent": "trailpack:block/template_backpack_roll",
+  "textures": {
+    "side": "trailpack:block/roll_side_blue",
+    "end": "trailpack:block/roll_end_blue",
+    "particle": "trailpack:block/roll_side_blue"
+  }
+}

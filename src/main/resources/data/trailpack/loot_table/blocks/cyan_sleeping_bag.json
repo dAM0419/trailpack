@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "trailpack:cyan_sleeping_bag",
+          "properties": {
+            "part": "head"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "trailpack:cyan_sleeping_bag"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "trailpack:blocks/cyan_sleeping_bag"
+}

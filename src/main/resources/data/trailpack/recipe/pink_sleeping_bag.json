@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sleeping_bag",
+  "pattern": [
+    "W",
+    "W",
+    "W"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:pink_wool"
+    }
+  },
+  "result": {
+    "id": "trailpack:pink_sleeping_bag",
+    "count": 1
+  }
+}

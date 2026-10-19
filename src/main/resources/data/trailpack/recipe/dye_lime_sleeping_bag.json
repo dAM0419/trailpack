@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sleeping_bag_dye",
+  "ingredients": [
+    {
+      "tag": "trailpack:sleeping_bags"
+    },
+    {
+      "item": "minecraft:lime_dye"
+    }
+  ],
+  "result": {
+    "id": "trailpack:lime_sleeping_bag",
+    "count": 1
+  }
+}
