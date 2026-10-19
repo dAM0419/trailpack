@@ -1,18 +1,18 @@
 package dev.trailpack.client;
 
-import dev.trailpack.Registration;
 import dev.trailpack.backpack.BackpackLayout;
 import dev.trailpack.backpack.BackpackLayout.Position;
+import dev.trailpack.backpack.BackpackVisuals;
 import dev.trailpack.backpack.WornBackpack;
 import net.minecraft.client.AttackIndicatorStatus;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemContainerContents;
+
+import java.util.List;
 
 /**
  * 핫바 오른쪽의 부착물 2칸. 위에 화살표로 위치를 표시한다: ← 왼쪽(웅크리기+G) / → 오른쪽(G).
@@ -33,8 +33,7 @@ public final class BackpackHud {
         ItemStack backpack = WornBackpack.find(player);
         if (backpack.isEmpty()) return;
 
-        NonNullList<ItemStack> extra = NonNullList.withSize(BackpackLayout.EXTRA_SIZE, ItemStack.EMPTY);
-        backpack.getOrDefault(Registration.EXTRA.get(), ItemContainerContents.EMPTY).copyInto(extra);
+        List<ItemStack> extra = BackpackVisuals.extraOf(backpack); // 캐시된 읽기 전용 사본 (매 프레임 복사하지 않음)
 
         int width = g.guiWidth();
         int x = width / 2 + 91 + 6;

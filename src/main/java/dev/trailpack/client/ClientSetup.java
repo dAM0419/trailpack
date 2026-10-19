@@ -21,12 +21,10 @@ import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.lwjgl.glfw.GLFW;
-import dev.trailpack.backpack.BackpackLayout;
+import dev.trailpack.backpack.BackpackVisuals;
 import dev.trailpack.backpack.WornBackpack;
 import dev.trailpack.compat.Mods;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemContainerContents;
 import dev.trailpack.compat.curios.CuriosClientCompat;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -122,10 +120,7 @@ public final class ClientSetup {
 
     private static boolean hasArmorPouch(net.minecraft.world.entity.player.Player player) {
         ItemStack backpack = WornBackpack.find(player);
-        if (backpack.isEmpty()) return false;
-        NonNullList<ItemStack> extra = NonNullList.withSize(BackpackLayout.EXTRA_SIZE, ItemStack.EMPTY);
-        backpack.getOrDefault(Registration.EXTRA.get(), ItemContainerContents.EMPTY).copyInto(extra);
-        return !extra.get(BackpackLayout.ATT_ARMOR).isEmpty();
+        return !backpack.isEmpty() && BackpackVisuals.of(backpack).armor();
     }
 
     /**

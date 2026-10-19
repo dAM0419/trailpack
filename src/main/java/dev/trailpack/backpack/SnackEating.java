@@ -14,6 +14,7 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -54,10 +55,11 @@ public final class SnackEating {
             stop(player);
             return;
         }
-        BackpackInventory inv = BackpackInventory.access(backpack, player);
-        ItemStack food = inv.extra.getItem(state.position.content);
+        // 매 틱 읽기만 하므로 캐시된 읽기 전용 사본을 본다. 실제로 먹을 때만 인벤토리를 연다.
+        List<ItemStack> extra = BackpackVisuals.extraOf(backpack);
+        ItemStack food = extra.get(state.position.content);
         FoodProperties props = food.isEmpty() ? null : food.getFoodProperties(player);
-        if (BackpackLayout.kindOf(inv.extra.getItem(state.position.attachment)) != AttachmentItem.Kind.POUCH
+        if (BackpackLayout.kindOf(extra.get(state.position.attachment)) != AttachmentItem.Kind.POUCH
                 || props == null) {
             stop(player);
             return;
@@ -77,7 +79,8 @@ public final class SnackEating {
         ItemStack one = food.copyWithCount(1);
         ItemStack left = one.finishUsingItem(player.level(), player);
         if (!infinite) {
-            ItemStack rest = food.copy();
+            BackpackInventory inv = BackpackInventory.access(backpack, player);
+            ItemStack rest = inv.extra.getItem(state.position.content).copy();
             rest.shrink(1);
             inv.extra.setItem(state.position.content, rest);
             // 그릇 요리: 남은 그릇 등은 인벤토리 → 바닥
