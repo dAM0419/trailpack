@@ -2,6 +2,15 @@
 
 NeoForge 1.21.1 (21.1.252) · 필수: 없음 · 선택: Curios API(등 칸), LambDynamicLights, JEI · 등반가 가죽 배낭, 자체 침낭 16색 포함
 
+
+## 라이선스 / License
+
+**CC0 1.0 (퍼블릭 도메인)** — 이 모드의 코드·텍스처·모델·문구 전부, 저작권을 포기합니다. 허락 없이, 출처 표시 없이 복사·수정·배포·모드팩 포함·상업적 이용 모두 자유입니다. 전문은 [`LICENSE`](LICENSE).
+
+All code, textures, models and text in this mod are dedicated to the public domain under CC0 1.0. Use it however you like — no permission or credit needed.
+
+예외: `libs/` 의 jar 3개는 다른 사람의 것이라 각자의 라이선스를 따릅니다 (LambDynamicLights API — Lambda License, Yumi Commons — MPL-2.0. 라이선스 전문은 각 jar 안에 들어 있음). 빌드할 때 참고용으로만 쓰이고, 완성된 Trailpack jar 에는 들어가지 않습니다.
+
 ## 0.5.4 변경
 
 - 최적화: 배낭 아이템의 부착물 상태를 매 프레임·매 틱 다시 풀던 것을 캐시 (컴포넌트가 불변이라 내용이 바뀌면 자동으로 새로 계산)
