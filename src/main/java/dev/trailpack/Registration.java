@@ -114,6 +114,10 @@ public final class Registration {
     public static final TagKey<Item> HANGABLE_LANTERNS = ItemTags.create(TrailPack.rl("hangable_lanterns"));
     /** 도구걸이에 걸 수 있는 도구 (바닐라 도구 태그 + c:tools). 손에 든 것과 맞바꾸는 기준이기도 하다. */
     public static final TagKey<Item> HOOK_TOOLS = ItemTags.create(TrailPack.rl("hook_tools"));
+    /** hook_tools 에 들어 있어도 도구걸이에 걸 수 없는 것 (기본: 방패 — 모양을 잴 수 없는 전용 렌더러). */
+    public static final TagKey<Item> HOOK_EXCLUDED = ItemTags.create(TrailPack.rl("hook_excluded"));
+    /** 도구걸이에 걸 때 위아래를 뒤집어 그릴 것 (머리 판정이 틀린 모드 도구 예외용, 기본 비어 있음). */
+    public static final TagKey<Item> HOOK_FLIPPED = ItemTags.create(TrailPack.rl("hook_flipped"));
 
     // ---- 침낭 16색 ----
     public static final Map<DyeColor, DeferredBlock<SleepingBagBlock>> SLEEPING_BAG_BLOCKS = new EnumMap<>(DyeColor.class);

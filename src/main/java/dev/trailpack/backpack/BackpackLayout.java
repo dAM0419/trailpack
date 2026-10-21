@@ -136,7 +136,7 @@ public final class BackpackLayout {
     }
 
     public static boolean isHookable(ItemStack stack) {
-        return stack.is(Registration.HOOK_TOOLS) || isLantern(stack);
+        return (stack.is(Registration.HOOK_TOOLS) && !stack.is(Registration.HOOK_EXCLUDED)) || isLantern(stack);
     }
 
     public static boolean isLantern(ItemStack stack) {

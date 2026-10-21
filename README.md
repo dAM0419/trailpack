@@ -1,4 +1,4 @@
-# Trailpack (배낭 모드) — 기능 시험판 0.5.4
+# Trailpack (배낭 모드) — 기능 시험판 0.5.5
 
 NeoForge 1.21.1 (21.1.252) · 필수: 없음 · 선택: Curios API(등 칸), LambDynamicLights, JEI · 등반가 가죽 배낭, 자체 침낭 16색 포함
 
@@ -10,6 +10,15 @@ NeoForge 1.21.1 (21.1.252) · 필수: 없음 · 선택: Curios API(등 칸), Lam
 All code, textures, models and text in this mod are dedicated to the public domain under CC0 1.0. Use it however you like — no permission or credit needed.
 
 예외: `libs/` 의 jar 3개는 다른 사람의 것이라 각자의 라이선스를 따릅니다 (LambDynamicLights API — Lambda License, Yumi Commons — MPL-2.0. 라이선스 전문은 각 jar 안에 들어 있음). 빌드할 때 참고용으로만 쓰이고, 완성된 Trailpack jar 에는 들어가지 않습니다.
+
+## 0.5.5 변경
+- 도구걸이 그리기 방식 개편:
+  - 평평한 바닐라식 손 도구(검·곡괭이·도끼 등)는 기존 그대로.
+  - 그 밖의 아이템(쇠뇌, Create 렌치 등 3D 모델 도구)은 손 변환 대신 모델의 실제 형태를 재서 건다 — 긴 축을 세로로, 단면이 넓은 쪽(머리)을 아래로, 가장 얇은 면을 바깥으로, 형태의 가운데를 걸이 위치에.
+  - 전용 렌더러인데 기본 모델 면을 가진 아이템(Create 렌치)은 면으로 형태를 재고 그리기는 원래 렌더러에 맡겨 움직이는 부품까지 나온다.
+  - 삼지창, 그리고 손에는 긴 3D 모델·인벤토리에는 그림을 쓰는 모드 무기(쇠스랑 등)는 인벤토리 그림 모델로 건다.
+- 방패는 도구걸이에 걸 수 없다 (태그 `trailpack:hook_excluded`, 기본: 방패 + `#c:tools/shield`).
+- 위아래가 반대로 걸리는 모드 도구는 태그 `trailpack:hook_flipped` 에 넣어 뒤집을 수 있다 (기본 비어 있음).
 
 ## 0.5.4 변경
 
@@ -77,7 +86,7 @@ All code, textures, models and text in this mod are dedicated to the public doma
 3. 이 폴더에서 실행
    - Windows: `gradlew.bat build`
    - macOS/Linux: `./gradlew build`
-4. `build/libs/trailpack-0.5.4.jar` 를 모드팩 `mods` 폴더에 넣는다
+4. `build/libs/trailpack-0.5.5.jar` 를 모드팩 `mods` 폴더에 넣는다
 5. 시험 전에 Sophisticated Backpacks 는 빼 둔다 (B키 충돌)
 
 빌드 오류가 나면 오류 메시지 전체를 Claude에게 붙여 넣으면 된다.

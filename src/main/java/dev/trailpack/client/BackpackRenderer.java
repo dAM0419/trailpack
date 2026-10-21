@@ -15,7 +15,13 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
+import org.joml.Matrix3f;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -113,6 +119,91 @@ public final class BackpackRenderer {
         return scale > 0F ? scale : 0.85F;
     }
 
+    /** 평평한 바닐라식 손 도구(handheld: 손 변환 회전 0,-90,55)인가. 이것들은 확인된 기존 방식으로 건다. */
+    private static boolean isHandheldRotation(BakedModel model) {
+        @SuppressWarnings("deprecation")
+        Vector3f r = model.getTransforms().getTransform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation;
+        return Math.abs(r.x()) < 1F && Math.abs(r.y() + 90F) < 1F && Math.abs(r.z() - 55F) < 1F;
+    }
+
+    /** 표시 컨텍스트별로 모델이 갈리는 경우(손엔 3D, 인벤토리엔 그림 등) 그 컨텍스트가 실제로 쓰는 모델. */
+    private static BakedModel perspective(BakedModel model, ItemDisplayContext context) {
+        return model.applyTransform(context, new PoseStack(), false);
+    }
+
+    /**
+     * 걸이에 그릴 방법을 정해 그린다.
+     * <ol>
+     *   <li>평평한 바닐라식 손 도구(회전이 handheld 이고, 실제로 그려질 모델이 1px 두께 그림): 기존 방식 (false 반환)</li>
+     *   <li>전용 렌더러인데 면이 있는 것(Create 렌치처럼 기본 모델 + 움직이는 부품): 면으로 형태를 재고, 그리기는 전용 렌더러에 맡김</li>
+     *   <li>전용 렌더러인데 면이 없는 것(삼지창): 인벤토리용 일반 모델을 재서 직접 그림</li>
+     *   <li>일반 모델: 인벤토리(GUI)에서 쓰는 모델을 재서 직접 그림 — 손에는 긴 3D 모델, 인벤토리엔 그림을 쓰는 모드 무기도 그림으로 걸림</li>
+     * </ol>
+     */
+    private static boolean renderMeasured(ItemStack stack, BakedModel model, boolean right, PoseStack pose,
+                                          MultiBufferSource buffers, int light, int overlay, @Nullable Level level) {
+        ItemRenderer items = Minecraft.getInstance().getItemRenderer();
+        BakedModel measured;
+        boolean viaRenderer = false;
+        if (model.isCustomRenderer()) {
+            HungShape own = HungShape.of(model, stack);
+            if (own != null) {
+                measured = model;
+                viaRenderer = true;
+            } else {
+                measured = items.getItemModelShaper().getItemModel(stack);
+                if (measured == null || measured.isCustomRenderer()) return false;
+                measured = perspective(measured, ItemDisplayContext.GUI);
+                if (measured.isCustomRenderer()) return false;
+            }
+        } else {
+            BakedModel drawn = perspective(model, ItemDisplayContext.NONE);
+            HungShape drawnShape = HungShape.of(drawn, stack);
+            if (isHandheldRotation(model) && drawnShape != null && drawnShape.thickness() < 0.1F
+                    && drawnShape.length() < 1.6F) {
+                return false; // 1번: 기존 방식
+            }
+            measured = perspective(model, ItemDisplayContext.GUI);
+            if (measured.isCustomRenderer()) measured = drawn;
+        }
+        HungShape shape = HungShape.of(measured, stack);
+        if (shape == null) return false;
+
+        float scale = heldScale(stack, level) / WORN_SCALE;
+        float turn = (float) Math.toRadians(TOOL_TURN);
+        Vector3f down = new Vector3f(0F, -1F, 0F);
+        Vector3f out = new Vector3f(right ? (float) Math.sin(turn) : -(float) Math.sin(turn), 0F, (float) Math.cos(turn));
+        Vector3f head = new Vector3f(shape.longAxis());
+        if (stack.is(Registration.HOOK_FLIPPED)) head.negate();
+        Vector3f thin = shape.thinAxis();
+        // 모델 축 (head, thin, head×thin) → 배낭 축 (down, out, down×out)
+        Matrix3f from = new Matrix3f(head, thin, new Vector3f(head).cross(thin));
+        Matrix3f to = new Matrix3f(down, out, new Vector3f(down).cross(out));
+        Matrix3f rot = to.mul(from.transpose());
+
+        // 두께가 있는 모델은 그만큼 바깥으로 밀어 옆면을 파고들지 않게 (평평한 그림 1px 기준)
+        float push = Math.max(0F, (shape.thickness() - 1F / 16F) / 2F * scale);
+        pose.translate((right ? TOOL_X : 1F - TOOL_X) + out.x * push, TOOL_Y, TOOL_Z + out.z * push);
+        pose.mulPose(new Quaternionf().setFromNormalized(rot));
+        pose.scale(scale, scale, scale);
+        Vector3f c = shape.center();
+
+        if (viaRenderer) {
+            // NONE 은 변환 없이 (-0.5) 만 옮기고 전용 렌더러를 부른다 → 면 좌표와 같은 자리에 그려진다
+            pose.translate(0.5F - c.x, 0.5F - c.y, 0.5F - c.z);
+            items.renderStatic(stack, ItemDisplayContext.NONE, light, overlay, pose, buffers, level, 0);
+            return true;
+        }
+        pose.translate(-c.x, -c.y, -c.z);
+        for (BakedModel pass : measured.getRenderPasses(stack, true)) {
+            for (RenderType type : pass.getRenderTypes(stack, true)) {
+                VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(buffers, type, true, stack.hasFoil());
+                items.renderModelLists(pass, stack, light, overlay, pose, consumer);
+            }
+        }
+        return true;
+    }
+
     private static void renderSide(ItemStack stack, boolean right, PoseStack pose, MultiBufferSource buffers,
                                    int light, int overlay, @Nullable Level level) {
         if (stack.isEmpty()) return;
@@ -122,14 +213,17 @@ public final class BackpackRenderer {
             Minecraft.getInstance().getBlockRenderer()
                     .renderSingleBlock(blockItem.getBlock().defaultBlockState(), pose, buffers, light, overlay);
         } else {
-            pose.translate(right ? TOOL_X : 1F - TOOL_X, TOOL_Y, TOOL_Z);
-            pose.mulPose(Axis.YP.rotationDegrees(right ? TOOL_TURN : -TOOL_TURN));
-            pose.mulPose(Axis.ZP.rotationDegrees(TOOL_SPIN));
-            float scale = heldScale(stack, level) / WORN_SCALE;
-            pose.scale(scale, scale, scale);
-            // NONE: 아이템 모델을 회전 없이 그대로 (손에 들 때와 같은 모델). 중심은 렌더러가 맞춘다.
-            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.NONE, light, overlay,
-                    pose, buffers, level, 0);
+            BakedModel model = Minecraft.getInstance().getItemRenderer().getModel(stack, level, null, 0);
+            if (!renderMeasured(stack, model, right, pose, buffers, light, overlay, level)) {
+                pose.translate(right ? TOOL_X : 1F - TOOL_X, TOOL_Y, TOOL_Z);
+                pose.mulPose(Axis.YP.rotationDegrees(right ? TOOL_TURN : -TOOL_TURN));
+                pose.mulPose(Axis.ZP.rotationDegrees(TOOL_SPIN));
+                float scale = heldScale(stack, level) / WORN_SCALE;
+                pose.scale(scale, scale, scale);
+                // NONE: 아이템 모델을 회전 없이 그대로 (손에 들 때와 같은 모델). 중심은 렌더러가 맞춘다.
+                Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.NONE, light, overlay,
+                        pose, buffers, level, 0);
+            }
         }
         pose.popPose();
     }
